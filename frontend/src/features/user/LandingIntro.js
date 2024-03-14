@@ -9,7 +9,7 @@ function LandingIntro(){
             <div className="hero-content py-12">
               <div className="max-w-md">
 
-                <div className="text-center mt-12 text-black"><img src="../../public/logo-big-ql3iwjsqvddtzglzrgrgaohc4arb6381xpyljc7gik.png" alt="Shree Samartha Vyayam Mandir Dashboard" className="w-48 inline-block"></img></div>
+                <div className="text-center mt-12 text-black"><img src="/logo-big-ql3iwjsqvddtzglzrgrgaohc4arb6381xpyljc7gik.png" alt="Shree Samartha Vyayam Mandir Dashboard" className="w-48 inline-block"></img></div>
                 <h1 className='text-3xl text-center font-bold  text-black'>Shree Samartha Vyayam Mandir</h1>
          
               
