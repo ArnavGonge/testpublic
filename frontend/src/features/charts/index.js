@@ -168,7 +168,11 @@ function Charts() {
                         <EditableInput label="Activity" value={userData.activity} onChange={(value) => handleFieldChange('activity', value)} />
                         <EditableInput label="Batch" value={userData.batch} onChange={(value) => handleFieldChange('batch', value)} />
                         <EditableInput label="Division" value={userData.division} onChange={(value) => handleFieldChange('division', value)} />
-                        <EditableInput label="Fees Status" value={userData.fees_status ? 'Paid' : 'Unpaid'} onChange={(value) => handleFieldChange('fees_status', value)} disabled={true} />
+                        <EditableInput
+                            label="Summer Camp ID"
+                            value={userData.summer_camp_id !== 0 ? userData.summer_camp_id : "Fees Pending"}
+                            onChange={(value) => handleFieldChange('division', value)}
+                        />                        <EditableInput label="Fees Status" value={userData.fees_status ? 'Paid' : 'Unpaid'} onChange={(value) => handleFieldChange('fees_status', value)} disabled={true} />
                         <div className="mt-4">
                             <span className="mr-2">
                                 <button type="button" className="btn btn-primary" onClick={handleSave}>Save</button>

@@ -91,7 +91,7 @@ function Login() {
                   containerStyle="mt-4"
                   labelTitle="Email Id"
                   updateFormValue={updateFormValue}
-                  style={{ color: 'orange' }}
+                  style={{ color: 'white' }}
                 />
 
                 <InputText
@@ -108,7 +108,7 @@ function Login() {
               <ErrorText styleClass="mt-8">{errorMessage}</ErrorText>
               <button
                 type="submit"
-                className={`btn mt-2 w-full btn-rose-800 btn btn-block text-orange${loading ? ' loading' : ''}`}
+                className={`btn mt-2 w-full bg-gray-800 btn btn-block text-white${loading ? ' loading' : ''}`}
               >
                 Login
               </button>

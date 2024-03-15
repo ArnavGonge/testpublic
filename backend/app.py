@@ -24,7 +24,7 @@ router = APIRouter()
 
 translator = Translator()
 
-origins = ['http://143.110.190.154:3000']
+origins = ['http://localhost:3000']
 
 app.add_middleware(
     CORSMiddleware,

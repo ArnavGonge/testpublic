@@ -106,14 +106,14 @@ function Register() {
               <ErrorText styleClass="mt-8">{errorMessage}</ErrorText>
               <button
                 type="submit"
-                className={`btn mt-2 w-full btn-rose-800  text-orange${loading ? ' loading' : ''}`}
+                className={`btn mt-2 w-full bg-gray-800  text-white${loading ? ' loading' : ''}`}
               >
                 Register
               </button>
-              <div className="text-center mt-4 text-orange">
+              <div className="text-center mt-4 text-white">
                 Already have an account?{' '}
                 <Link to="/login">
-                  <span className="  inline-block  hover:orange hover:underline hover:cursor-pointer transition duration-200">
+                  <span className="  inline-block  hover:white hover:underline hover:cursor-pointer transition duration-200">
                     Login
                   </span>
                 </Link>
