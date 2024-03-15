@@ -79,7 +79,7 @@ function Register() {
           <div className="py-24 px-10 bg-rose-800">
             <h2 className="text-2xl font-semibold mb-2 text-center text-white">Register</h2>
             <form onSubmit={(e) => submitForm(e)}>
-              <div className="mb-4  text-white">
+              <div className="mb-4  text-orange">
                 <InputText
                   defaultValue={registerObj.name}
                   updateType="name"
@@ -106,14 +106,14 @@ function Register() {
               <ErrorText styleClass="mt-8">{errorMessage}</ErrorText>
               <button
                 type="submit"
-                className={`btn mt-2 w-full btn-rose-800  text-white${loading ? ' loading' : ''}`}
+                className={`btn mt-2 w-full btn-rose-800  text-orange${loading ? ' loading' : ''}`}
               >
                 Register
               </button>
-              <div className="text-center mt-4 text-white">
+              <div className="text-center mt-4 text-orange">
                 Already have an account?{' '}
                 <Link to="/login">
-                  <span className="  inline-block  hover:white hover:underline hover:cursor-pointer transition duration-200">
+                  <span className="  inline-block  hover:orange hover:underline hover:cursor-pointer transition duration-200">
                     Login
                   </span>
                 </Link>

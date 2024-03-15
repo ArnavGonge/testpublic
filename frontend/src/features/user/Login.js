@@ -83,7 +83,7 @@ function Login() {
           <div className="py-24 px-10">
             <h2 className="text-2xl font-semibold mb-2 text-center text-white">Login</h2>
             <form onSubmit={(e) => submitForm(e)}>
-              <div className="mb-4 text-white">
+              <div className="mb-4 text-orange">
                 <InputText
                   type="email"
                   defaultValue={loginObj.email}
@@ -91,7 +91,7 @@ function Login() {
                   containerStyle="mt-4"
                   labelTitle="Email Id"
                   updateFormValue={updateFormValue}
-                  style={{ color: 'white' }}
+                  style={{ color: 'orange' }}
                 />
 
                 <InputText
@@ -101,14 +101,14 @@ function Login() {
                   containerStyle="mt-4"
                   labelTitle="Password"
                   updateFormValue={updateFormValue}
-                  style={{ color: 'white' }}
+                  style={{ color: 'orange' }}
                 />
               </div>
 
               <ErrorText styleClass="mt-8">{errorMessage}</ErrorText>
               <button
                 type="submit"
-                className={`btn mt-2 w-full btn-rose-800 btn btn-block text-white${loading ? ' loading' : ''}`}
+                className={`btn mt-2 w-full btn-rose-800 btn btn-block text-orange${loading ? ' loading' : ''}`}
               >
                 Login
               </button>
