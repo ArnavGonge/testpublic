@@ -40,7 +40,7 @@ function AddLeadModalBody({ closeModal }) {
             try {
                 const registrationNumber = new Date().getTime();
                 // Set registration_number to current time in milliseconds
-                const apiUrl = 'http:/143.110.190.154:8000/personal_info/';
+                const apiUrl = 'http://143.110.190.154:8000/personal_info/';
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
