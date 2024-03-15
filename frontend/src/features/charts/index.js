@@ -22,7 +22,7 @@ function Charts() {
 
     const getUserData = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/personal-info/${registrationNumber}`);
+            const response = await fetch(`http://143.110.190.154:8000/personal-info/${registrationNumber}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
@@ -54,7 +54,7 @@ function Charts() {
     const handleSave = async () => {
         try {
             const { id, ...userDataWithoutId } = userData;
-            const apiUrl = `http://127.0.0.1:8000/personal_info/${registrationNumber}`;
+            const apiUrl = `http://143.110.190.154:8000/personal_info/${registrationNumber}`;
             const response = await fetch(apiUrl, {
                 method: 'PUT',
                 headers: {
@@ -86,7 +86,7 @@ function Charts() {
 
     const handleFeesPaid = async () => {
         try {
-            const apiUrl = `http://127.0.0.1:8000/update_fees_status/${registrationNumber}`;
+            const apiUrl = `http://143.110.190.154:8000/update_fees_status/${registrationNumber}`;
             const response = await fetch(apiUrl, {
                 method: 'PUT',
                 headers: {
@@ -111,7 +111,7 @@ function Charts() {
 
     const handleDownloadIdCard = async () => {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/download_student_id_card/${registrationNumber}`);
+            const response = await fetch(`http://143.110.190.154:8000/download_student_id_card/${registrationNumber}`);
             const blob = await response.blob();
 
             // Create a link element to trigger the download
