@@ -233,7 +233,7 @@ def create_id_card_image(user_data):
     draw.rectangle([(50, 50), (750, 550)], fill="#f2f2f2", outline="#000000")
 
     # Load and resize logo image
-    logo_path = "../frontend/public/logo_id.png"  # Provide the path to your logo file
+    logo_path = "../frontend/public/logo-big-306x306.png"  # Provide the path to your logo file
     logo = Image.open(logo_path)
     logo = logo.resize((100, 100))  # Adjust size as needed
 
