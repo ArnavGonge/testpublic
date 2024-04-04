@@ -297,7 +297,7 @@ def create_id_card_image(user_data):
     draw.text((100, 250), f"Name: {user_data.name}", fill=text_color, font=font)
     draw.text((100, 300), f"Registration Number: {user_data.registration_number}", fill=text_color, font=font)
     draw.text((100, 350), f"Summer Camp ID: {user_data.summer_camp_id}", fill=text_color, font=font)
-    draw.text((100, 400), f"Class: {user_data.batch} ", f"Gender:{user_data.sex}", fill=text_color, font=font)   
+    draw.text((100, 400), f"Class: {user_data.batch}, Gender: {user_data.sex}", fill=text_color, font=font)
     draw.text((100, 450), f"Division: {user_data.division}", fill=text_color, font=font)
     draw.text((100, 500), f"Timings: {user_data.activity}", fill=text_color, font=font)
 
