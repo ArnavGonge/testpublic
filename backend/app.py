@@ -3,18 +3,18 @@ from tortoise.contrib.fastapi import register_tortoise
 from models import * # Import the PersonalInfo model
 from fastapi.middleware.cors import CORSMiddleware
 from tortoise import Tortoise, fields
-from models import User
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from tortoise.contrib.fastapi import register_tortoise
 from tortoise import Tortoise, fields
-from models import User
+from models import User, PersonalInfo
 from googletrans import Translator
 import pandas as pd
 from io import BytesIO
 from fastapi import APIRouter, Depends
 from fastapi.responses import StreamingResponse
 from PIL import Image, ImageDraw, ImageFont
+from string import ascii_uppercase
 
 
 
@@ -40,7 +40,7 @@ def index():
     return {"message": "Hello, FastAPI!"}
 
 
-@app.post('/personal_info/')
+@app.post('/personal_info_back/')
 async def create_personal_info(payload: PersonalInfo_request):
     age = payload.age
     if age >= 16:
@@ -61,6 +61,59 @@ async def create_personal_info(payload: PersonalInfo_request):
     new_info = await PersonalInfo.create(**payload.dict())
     response  = await PersonalInfo_pydantic.from_tortoise_orm(new_info)
     return {"status": "success", "response": response}
+
+from string import ascii_uppercase
+
+@app.post('/personal_info/')
+async def create_personal_info(payload: PersonalInfo_request):
+    age = payload.age
+    if age >= 16:
+        payload.batch = "Class 1"
+    elif 14 <= age < 16:
+        payload.batch = "Class 2"
+    elif 11 <= age < 14:
+        payload.batch = "Class 3"
+    elif 9 <= age < 11:
+        payload.batch = "Class 4"
+    elif 7 <= age < 9:
+        payload.batch = "Class 5"
+    elif 6 <= age < 7:
+        payload.batch = "Class 6"
+    else:
+        payload.batch = "Class 7"
+
+    # Query to count the number of students in the same batch, activity, and gender
+    count_query = {
+        'batch': payload.batch,
+        'activity': payload.activity,
+        'sex': payload.sex
+    }
+    
+    student_count = await PersonalInfo.filter(**count_query).count()
+
+    # Calculate division based on the count of students in the same batch, activity, and gender
+    max_students_per_division = 15 if payload.batch in ["Class 1", "Class 2", "Class 3", "Class 4"] else 12
+    division_class = ascii_uppercase[student_count // max_students_per_division]
+
+    # Update payload division
+    payload.division = division_class
+
+    # Save new personal info to the database
+    new_info = await PersonalInfo.create(**payload.dict())
+
+    # Get total students count for the batch, activity, gender, and division
+    total_students = await PersonalInfo.filter(
+        batch=payload.batch,
+        activity=payload.activity,
+        sex=payload.sex,
+        division=division_class
+    ).count()
+
+    # Prepare response message
+    response_message = f"{payload.activity} {payload.batch} Division {division_class} {payload.sex} Total has {total_students} students."
+
+    return {"status": "success", "response": response_message}
+
 
 
 @app.put('/personal_info/{info_id}')
